@@ -34,7 +34,8 @@ RUN ring elasticsearch instance create --dir /var/cs/elastic_instance --owner ro
 	ring elasticsearch --instance elastic_instance service create --username root --stopped --java-home $JAVA_HOME
 
 COPY run.sh /
-RUN chmod +x /run.sh
+COPY init.sh /
+RUN chmod +x /*.sh
 
 ENV POSTGRES_URL "postgres:5432/cs"
 ENV POSTGRES_USER "postgres"
