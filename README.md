@@ -20,7 +20,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ### Запустить сервер взаимодействия
 
 ```
-docker run -ti --name 1ccommunicationserver --link postgress:postgress -e POSTGRES_URL=postgress:5432/cs -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=myPassword -p 8181:8181 test  bash
+docker run -ti --name 1ccommunicationserver --link postgres:postgres -e POSTGRES_URL=postgress:5432/cs -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=myPassword -p 8181:8181 test  bash
 
 
 
