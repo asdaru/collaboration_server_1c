@@ -35,6 +35,7 @@ RUN ring elasticsearch instance create --dir /var/cs/elastic_instance --owner ro
 
 COPY run.sh /
 COPY init.sh /
+COPY restart.sh /
 RUN chmod +x /*.sh
 
 ENV POSTGRES_URL "postgres:5432/cs"
