@@ -1,26 +1,7 @@
 # 1С: Сервер взаимодействия docker 
 
+Положите дистрибутивы установке в папку ./cs/dist
 
-## Запуск
+Выполните команду docker-compose up -d
 
-### Запустить контейнер с посгрес
-```
-docker run -d --name postgres -e POSTGRES_PASSWORD=myPassword -d postgres
-```
-### Создать базу
-```
-docker exec -ti --user postgres  postgres psql
-
-Вводим
-CREATE DATABASE cs OWNER postgres;
-\c cs
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-```
-
-### Запустить сервер взаимодействия
-
-```
-docker run -ti --name 1ccommunicationserver --link postgres:postgres -e POSTGRES_URL=postgress:5432/cs -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=myPassword -p 8181:8181 asdaru/collaboration_server_1c
-```
-
-
+В 1С подключитесь к серверу взаимодействия по адресу: host_name:{SERVER_PORT}

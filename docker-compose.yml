@@ -2,12 +2,16 @@ version: '3.3'
 services:
   collaboration-server:
     build:
-      context: .
+      context: ./cs
       dockerfile: ./Dockerfile
     ports:
       - "${SERVER_PORT}:8181"
+    depends_on:
+      - "postgres"
   postgres:
-    image: postgres:13.1
+    build:
+      context: ./postgres
+      dockerfile: ./Dockerfile
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
