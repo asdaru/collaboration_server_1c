@@ -1,0 +1,22 @@
+version: '3.3'
+services:
+  collaboration-server:
+    build:
+      context: ./cs
+      dockerfile: ./Dockerfile_v8
+    ports:
+      - "${SERVER_PORT}:8181"
+    depends_on:
+      - "postgres"
+  postgres:
+    build:
+      context: ./postgres
+      dockerfile: ./Dockerfile
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "cs"
+    volumes:
+      - db:/var/lib/postgresql/data
+volumes:
+  db:
