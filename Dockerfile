@@ -12,7 +12,7 @@ RUN mkdir -p /usr/share/man/man1 && \
 
 ADD dist /opt/dist
 RUN cd /opt/dist \
-	&& wget http://casa.ru/collaborationserver1c/1ce_cs_server_7.0.25_1_amd64.deb --no-check-certificate \
+	&& wget http://casa.ru/collaborationserver1c/1ce_cs_server_8.0.15_1_amd64.deb --no-check-certificate \
 	&& dpkg -i *.deb && rm -rf *
 
 RUN apt-get clean && \
