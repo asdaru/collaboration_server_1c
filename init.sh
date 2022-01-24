@@ -1,11 +1,11 @@
 #!/bin/bash
 
-ring cs --instance cs_instance jdbc set-params --url jdbc:postgresql://$POSTGRES_URL?currentSchema=public
-ring cs --instance cs_instance jdbc set-params --username $POSTGRES_USER
-ring cs --instance cs_instance jdbc set-params --password $POSTGRES_PASSWORD
-ring cs --instance cs_instance jdbc-privileged set-params --url jdbc:postgresql://$POSTGRES_URL?currentSchema=public
-ring cs --instance cs_instance jdbc-privileged set-params --username $POSTGRES_USER
-ring cs --instance cs_instance jdbc-privileged set-params --password $POSTGRES_PASSWORD
+ring cs --instance cs_instance jdbc pools --name common set-params --url jdbc:postgresql://$POSTGRES_URL?currentSchema=public
+ring cs --instance cs_instance jdbc pools --name common set-params --username $POSTGRES_USER
+ring cs --instance cs_instance jdbc pools --name common set-params --password $POSTGRES_PASSWORD
+ring cs --instance cs_instance jdbc pools --name privileged set-params --url jdbc:postgresql://$POSTGRES_URL?currentSchema=public
+ring cs --instance cs_instance jdbc pools --name privileged set-params --username $POSTGRES_USER
+ring cs --instance cs_instance jdbc pools --name privileged set-params --password $POSTGRES_PASSWORD
 
 
 ring cs --instance cs_instance websocket set-params --hostname 0.0.0.0

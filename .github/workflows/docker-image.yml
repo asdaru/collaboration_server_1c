@@ -34,4 +34,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: aasdaru/collaboration_server_1c:latest,asdaru/collaboration_server_1c:${{ env.TAG }}
+          tags: asdaru/collaboration_server_1c:latest,asdaru/collaboration_server_1c:${{ env.TAG }}

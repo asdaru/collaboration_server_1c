@@ -1,11 +1,6 @@
 #!/bin/bash
-
-/init.sh
-
-#======== DELETE INIT CODE ==
-sed -i "s/^\/init.sh//" /run.sh
-
-/restart.sh
+#======== RUN and DELETE INIT CODE ==
+/init.sh && sed -i "s/^\/init.sh.*/\/restart.sh/" /run.sh
 
 echo "start ok"
 while true; do sleep 600; done;
